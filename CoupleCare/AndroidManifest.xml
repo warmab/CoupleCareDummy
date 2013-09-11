@@ -31,6 +31,8 @@
         <activity android:name="Signupmen"></activity>
         <activity android:name="MysettingsActivity"></activity>
         <activity android:name="Mysignupactivity"></activity>
+        <activity android:name="com.cc.login.CheckLogin"></activity>
+        <activity android:name="com.cc.login.LoginActivity"></activity>
     </application>
 
 </manifest>

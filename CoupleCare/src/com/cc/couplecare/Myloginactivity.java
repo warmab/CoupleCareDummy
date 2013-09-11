@@ -1,6 +1,7 @@
 package com.cc.couplecare;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -21,20 +22,29 @@ public class Myloginactivity extends Activity {
 		
 		etmail = (EditText) findViewById(R.id.etmaillog);
 		etpassword = (EditText) findViewById(R.id.etpasslog);
+		
+		SharedPreferences settigns = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		String email = settigns.getString("mail", "");
+		String pass = settigns.getString("password", "");
 		}
 	
-	public void ejecutar()
+	public void ejecutar(View view)
 	{
-		SharedPreferences settigns = getSharedPreferences("preferences", 0);
-		String email = settigns.getString("email", "");
-		String pass = settigns.getString("pass", "");
-        finish();
-		Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)" + email + " y " + pass, Toast.LENGTH_LONG).show();
-		if(email == etmail.toString()&& pass == etpassword.toString()){
-			Intent c = new Intent(this,Myhomeactivity.class);
-			startActivity(c);
-		}
-		else{
+		 String mail = etmail.getText().toString();
+	     String passet = etpassword.getText().toString();
+	     
+		 SharedPreferences settigns = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		 String email = settigns.getString("mail", "");
+		 String pass = settigns.getString("password", "");
+        //finish();
+       
+		
+		if(mail.equals(email) & passet.equals(pass)){
+			Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)" + email + " y " + pass, Toast.LENGTH_LONG).show();
+			home(view);
+			}
+		else
+		{
 			finish();
 		}	
 	}
@@ -52,11 +62,13 @@ public class Myloginactivity extends Activity {
 	
 	public void home(View view){
 		Intent a = new Intent(this,Myhomeactivity.class);
+		a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(a);
 	}
 	public void settings(View view){
 		Intent a = new Intent(this,MysettingsActivity.class);
 		startActivity(a);
 	}
+	
 
 }

@@ -16,7 +16,8 @@ import android.widget.Toast;
 
 public class Mysignupactivity extends Activity {
 	private EditText etmail,etpass,etpassv;
-
+	
+	public static final String IS_LOGIN = "IsLoggedIn";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

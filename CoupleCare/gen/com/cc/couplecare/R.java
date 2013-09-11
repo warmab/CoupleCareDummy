@@ -56,11 +56,14 @@ public final class R {
         public static final int calendar_tile_small=0x7f020012;
         public static final int calendar_top_header=0x7f020013;
         public static final int calendar_view=0x7f020014;
-        public static final int fondowelcome=0x7f020015;
-        public static final int ic_launcher=0x7f020016;
-        public static final int meenu=0x7f020017;
-        public static final int plus=0x7f020018;
-        public static final int topbar=0x7f020019;
+        public static final int fail=0x7f020015;
+        public static final int fondowelcome=0x7f020016;
+        public static final int ic_action_search=0x7f020017;
+        public static final int ic_launcher=0x7f020018;
+        public static final int meenu=0x7f020019;
+        public static final int plus=0x7f02001a;
+        public static final int success=0x7f02001b;
+        public static final int topbar=0x7f02001c;
     }
     public static final class id {
         public static final int AbsoluteLayout1=0x7f0a0000;
