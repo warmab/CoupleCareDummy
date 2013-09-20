@@ -30,7 +30,7 @@
                 android:id="@+id/btnsendsm"
                 android:layout_width="78dp"
                 android:layout_height="wrap_content"
-                android:onClick="lanzarsignup"
+                android:onClick="checkdata"
                 android:text="Sign-Up" />
 
             <Button
@@ -41,7 +41,7 @@
                 android:text="Login" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnper"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:onClick="lanzarstart"
@@ -50,5 +50,14 @@
         </LinearLayout>
 
     </TableRow>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="30dp"
+        android:layout_y="278dp"
+        android:text="&quot; &quot;"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </AbsoluteLayout>

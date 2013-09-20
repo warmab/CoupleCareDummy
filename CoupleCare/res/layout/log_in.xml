@@ -39,7 +39,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="e-mail:"
@@ -144,7 +144,7 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btncalcular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="signup"
@@ -166,7 +166,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Settings" />

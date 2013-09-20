@@ -14,16 +14,23 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme" >
         
+         <!-- Splash Screen  -->
+        <activity 
+            android:name="com.cc.couplecare.Splash"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"> 
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>           
+        </activity>
+        
         <!--Activity Welcome -->
         <activity
             android:name="com.cc.couplecare.WelcomeCC"
             android:label="@string/app_name" 
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="MyCalendarActivity"></activity>
         <activity android:name="Myloginactivity"></activity>
@@ -31,8 +38,7 @@
         <activity android:name="Signupmen"></activity>
         <activity android:name="MysettingsActivity"></activity>
         <activity android:name="Mysignupactivity"></activity>
-        <activity android:name="com.cc.login.CheckLogin"></activity>
-        <activity android:name="com.cc.login.LoginActivity"></activity>
+        <activity android:name="ListFertilDays"></activity>
     </application>
 
 </manifest>

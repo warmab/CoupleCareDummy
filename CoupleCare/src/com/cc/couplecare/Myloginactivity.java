@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class Myloginactivity extends Activity {
+	private static final boolean USER_IS_GOING_TO_EXIT = false;
 	EditText etmail, etpassword;
 	
 
@@ -40,7 +42,7 @@ public class Myloginactivity extends Activity {
        
 		
 		if(mail.equals(email) & passet.equals(pass)){
-			Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)" + email + " y " + pass, Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "Hello" + email + " y " + pass, Toast.LENGTH_LONG).show();
 			home(view);
 			}
 		else
@@ -70,5 +72,24 @@ public class Myloginactivity extends Activity {
 		startActivity(a);
 	}
 	
+	public void onBackPressed() {
+		Context context = getApplicationContext();
+		CharSequence text = "Tap again to exit.";
+		int duration = Toast.LENGTH_SHORT;
 
+		Toast backtoast = Toast.makeText(context, text, duration);
+		backtoast.show();
+		
+	    if(USER_IS_GOING_TO_EXIT) {
+	        if(backtoast!=null&&backtoast.getView().getWindowToken()!=null) {
+	            finish();
+	        } else {
+	            backtoast = Toast.makeText(this, "Press back to exit", Toast.LENGTH_SHORT);
+	            backtoast.show();
+	        }
+	    } else {
+	        //other stuff...
+	        super.onBackPressed();
+	    }
+	}
 }

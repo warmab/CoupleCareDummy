@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class Signupmen extends Activity {
 
+	private static final boolean USER_IS_GOING_TO_EXIT = false;
 	EditText etemailsm, etpasssm, etpassvsm;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class Signupmen extends Activity {
 		
 		SharedPreferences  prefe = getSharedPreferences("datamen", Context.MODE_PRIVATE);
 		etemailsm.setText(prefe.getString("email", ""));
+		etpasssm.setText(prefe.getString("pass", ""));
+		etpassvsm.setText(prefe.getString("passv", ""));
 		
 	}
 	
@@ -40,9 +44,9 @@ public class Signupmen extends Activity {
 		String passv = etpassvsm.getText().toString();
 		
 		if(pass.equals(passv)){
-			editor.putString("emailc", etemailsm.getText().toString());
-			editor.putString("pass", etpasssm.getText().toString());
-			editor.putString("passv", etpassvsm.getText().toString());
+			editor.putString("emailc", mail);
+			editor.putString("pass", pass);
+			editor.putString("passv", passv);
 			editor.commit();
 			finish();
 			}else{
@@ -54,7 +58,7 @@ public class Signupmen extends Activity {
 			}
 		
 		AlertDialog.Builder dialogosm = new AlertDialog.Builder(this);
-		dialogosm.setTitle("Optional");
+		dialogosm.setTitle("Couple");
 		dialogosm.setMessage("Thank's for register your partner");
 		dialogosm.setCancelable(false);
 		dialogosm.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
@@ -82,6 +86,27 @@ public class Signupmen extends Activity {
 		startActivity(it);
 	}
 	
+	@Override
+	public void onBackPressed() {
+		Context context = getApplicationContext();
+		CharSequence text = "Tap again to exit.";
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast backtoast = Toast.makeText(context, text, duration);
+		backtoast.show();
+		
+	    if(USER_IS_GOING_TO_EXIT) {
+	        if(backtoast!=null&&backtoast.getView().getWindowToken()!=null) {
+	            finish();
+	        } else {
+	            backtoast = Toast.makeText(this, "Press back to exit", Toast.LENGTH_SHORT);
+	            backtoast.show();
+	        }
+	    } else {
+	        //other stuff...
+	        super.onBackPressed();
+	    }
+	}
 		
 }
 

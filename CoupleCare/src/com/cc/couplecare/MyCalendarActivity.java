@@ -14,6 +14,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -26,6 +27,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 @TargetApi(3)
 public class MyCalendarActivity extends Activity implements OnClickListener {
@@ -44,6 +46,8 @@ public class MyCalendarActivity extends Activity implements OnClickListener {
  @SuppressLint({ "NewApi", "NewApi", "NewApi", "NewApi" })
  private final DateFormat dateFormatter = new DateFormat();
  private static final String dateTemplate = "MMMM yyyy";
+
+private static final boolean USER_IS_GOING_TO_EXIT = false;
 
  /** Called when the activity is first created. */
  @Override
@@ -403,4 +407,26 @@ public class MyCalendarActivity extends Activity implements OnClickListener {
    return currentWeekDay;
   }
  }
+ 
+ @Override
+	public void onBackPressed() {
+		Context context = getApplicationContext();
+		CharSequence text = "Tap again to exit.";
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast backtoast = Toast.makeText(context, text, duration);
+		backtoast.show();
+		
+	    if(USER_IS_GOING_TO_EXIT) {
+	        if(backtoast!=null&&backtoast.getView().getWindowToken()!=null) {
+	            finish();
+	        } else {
+	            backtoast = Toast.makeText(this, "Press back to exit", Toast.LENGTH_SHORT);
+	            backtoast.show();
+	        }
+	    } else {
+	        //other stuff...
+	        super.onBackPressed();
+	    }
+	}
 }

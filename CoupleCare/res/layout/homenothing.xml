@@ -12,14 +12,14 @@
         android:text="Login" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btncalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="lanzarsync"
         android:text="CoupleSync" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="lanzarcalendar"
