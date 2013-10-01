@@ -7,7 +7,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-public class Preferences extends Activity{
+public class Preferences{
+	
 	private String email;
 	private String pass;
 	private String emailh;
@@ -17,53 +18,68 @@ public class Preferences extends Activity{
 	private int duration;
 	private boolean isLogged;	
 	
-	private String getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	private void setEmail(String email) {
+	public void setEmail(String email) {
+		
 		this.email = email;
 	}
-	private String getPass() {
+	public String getPass() {
 		return pass;
 	}
-	private void setPass(String pass) {
+	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	private String getEmailh() {
+	public String getEmailh() {
 		return emailh;
 	}
-	private void setEmailh(String emailh) {
+	public void setEmailh(String emailh) {
 		this.emailh = emailh;
 	}
-	private String getPassh() {
+	public String getPassh() {
 		return passh;
 	}
-	private void setPassh(String passh) {
+	public void setPassh(String passh) {
 		this.passh = passh;
 	}
-	private String getSyncPass() {
+	public String getSyncPass() {
 		return syncPass;
 	}
-	private void setSyncPass(String syncPass) {
+	public void setSyncPass(String syncPass) {
 		this.syncPass = syncPass;
 	}
-	private Date getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
-	private void setStartDate(Date startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	private int getDuration() {
+	public int getDuration() {
 		return duration;
 	}
-	private void setDuration(int duration) {
+	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	private boolean isLogged() {
+	public boolean isLogged() {
 		return isLogged;
 	}
-	private void setLogged(boolean isLogged) {
+	public void setLogged(boolean isLogged) {
 		this.isLogged = isLogged;
+	}
+	
+	public String toString(){
+		fechaMostrar("");
+		return "";
+	}
+	/**
+	 * Esta madre esta bien chida
+	 * 
+	 * @return 
+	 * String bien chido
+	 */
+	public String fechaMostrar(String esputo){
+		return "la fecha es " + startDate.toString() + " madafaka";
 	}
 
 }
