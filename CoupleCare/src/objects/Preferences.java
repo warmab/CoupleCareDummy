@@ -4,11 +4,11 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-public class Preferences{
-	
+public class Preferences extends Activity {
 	private String email;
 	private String pass;
 	private String emailh;
@@ -16,70 +16,103 @@ public class Preferences{
 	private String syncPass;
 	private Date startDate;
 	private int duration;
-	private boolean isLogged;	
-	
-	public String getEmail() {
+	private boolean isLogged;
+
+	public void deletedShared() {
+		SharedPreferences prefs = getSharedPreferences("datos", MODE_PRIVATE);
+
+		SharedPreferences.Editor editor = prefs.edit();
+
+		editor.clear();
+		editor.commit();
+	}
+
+	private String getEmail() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("mail", "");
 		return email;
 	}
-	public void setEmail(String email) {
-		
+
+	private void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPass() {
+
+	private String getPass() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("password", "");
 		return pass;
 	}
-	public void setPass(String pass) {
+
+	private void setPass(String pass) {
 		this.pass = pass;
 	}
-	public String getEmailh() {
+
+	private String getEmailh() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("emailmen", "");
 		return emailh;
 	}
-	public void setEmailh(String emailh) {
+
+	private void setEmailh(String emailh) {
 		this.emailh = emailh;
 	}
-	public String getPassh() {
+
+	private String getPassh() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("passmen", "");
 		return passh;
 	}
-	public void setPassh(String passh) {
+
+	private void setPassh(String passh) {
 		this.passh = passh;
 	}
-	public String getSyncPass() {
+
+	private String getSyncPass() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("passsync", "");
 		return syncPass;
 	}
-	public void setSyncPass(String syncPass) {
+
+	private void setSyncPass(String syncPass) {
 		this.syncPass = syncPass;
 	}
-	public Date getStartDate() {
+
+	private Date getStartDate() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("datestart", "");
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+
+	private void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public int getDuration() {
+
+	private int getDuration() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getString("durationcycle", "");
 		return duration;
 	}
-	public void setDuration(int duration) {
+
+	private void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public boolean isLogged() {
+
+	private boolean isLogged() {
+		SharedPreferences prefe = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		prefe.getBoolean("logged", false);
 		return isLogged;
 	}
-	public void setLogged(boolean isLogged) {
+
+	private void setLogged(boolean isLogged) {
 		this.isLogged = isLogged;
-	}
-	
-	public String toString(){
-		fechaMostrar("");
-		return "";
-	}
-	/**
-	 * Esta madre esta bien chida
-	 * 
-	 * @return 
-	 * String bien chido
-	 */
-	public String fechaMostrar(String esputo){
-		return "la fecha es " + startDate.toString() + " madafaka";
 	}
 
 }

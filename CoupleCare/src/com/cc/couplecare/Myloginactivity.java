@@ -8,12 +8,16 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Myloginactivity extends Activity {
 	private static final boolean USER_IS_GOING_TO_EXIT = false;
 	EditText etmail, etpassword;
+	TextView txt3;
+	Button btncalcular;
 	
 
 	@Override
@@ -24,11 +28,35 @@ public class Myloginactivity extends Activity {
 		
 		etmail = (EditText) findViewById(R.id.etmaillog);
 		etpassword = (EditText) findViewById(R.id.etpasslog);
+		txt3 = (TextView) findViewById(R.id.textView3);
+		btncalcular = (Button) findViewById(R.id.btncalcular);
 		
 		SharedPreferences settigns = getSharedPreferences("datos", Context.MODE_PRIVATE);
 		String email = settigns.getString("mail", "");
 		String pass = settigns.getString("password", "");
+		
+		SharedPreferences pref = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		Boolean datos = pref.getBoolean("dataexist", false);
+		if(datos.equals(true)){
+			txt3.setVisibility(View.INVISIBLE);
+			btncalcular.setVisibility(View.INVISIBLE);
+		}else{
+			txt3.setVisibility(View.VISIBLE);
+			btncalcular.setVisibility(View.VISIBLE);
 		}
+		
+	
+		}
+	
+	/*public void checkdatasign(View view){
+		SharedPreferences pref = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		Boolean datos = pref.getBoolean("data", false);
+		if(datos.equals(true)){
+			txt3.setVisibility(View.INVISIBLE);
+			btncalcular.setVisibility(View.INVISIBLE);
+			
+		}
+	}*/
 	
 	public void ejecutar(View view)
 	{
@@ -41,14 +69,23 @@ public class Myloginactivity extends Activity {
         //finish();
        
 		
-		if(mail.equals(email) & passet.equals(pass)){
+		if(mail.equals(email) && passet.equals(pass)){
 			Toast.makeText(getApplicationContext(), "Hello" + email + " y " + pass, Toast.LENGTH_LONG).show();
+			Boolean logged = true;
+			Editor editor = settigns.edit();
+			editor.putBoolean("logged", logged);	
+			editor.commit();
 			home(view);
-			}
-		else
+		}
+		else if(mail!=email && passet.equals(pass) )
 		{
-			finish();
-		}	
+			Toast.makeText(getApplicationContext(), "Email is incorrect", Toast.LENGTH_LONG).show();
+		}else if(passet!=pass && mail.equals(email))
+		{
+			Toast.makeText(getApplicationContext(), "Password is incorrect" , Toast.LENGTH_LONG).show();
+		}else if(mail!=email && passet!=pass){
+			Toast.makeText(getApplicationContext(), "you're not my owner" , Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	public void start(View view){
@@ -72,6 +109,9 @@ public class Myloginactivity extends Activity {
 		startActivity(a);
 	}
 	
+	
+	/*Use the physics button back.
+	 * */
 	public void onBackPressed() {
 		Context context = getApplicationContext();
 		CharSequence text = "Tap again to exit.";

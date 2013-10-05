@@ -141,14 +141,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="You don´t have an account?"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="visible" />
 
                 <Button
                     android:id="@+id/btncalcular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="signup"
-                    android:text="Sign-up" />
+                    android:text="Sign-up"
+                    android:visibility="visible" />
 
             </LinearLayout>
 

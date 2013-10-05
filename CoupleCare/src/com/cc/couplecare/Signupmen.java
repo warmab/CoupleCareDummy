@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class Signupmen extends Activity {
 
 	private static final boolean USER_IS_GOING_TO_EXIT = false;
-	EditText etemailsm, etpasssm, etpassvsm;
+	EditText etemailsm, etpasyncm, etpasyncvm;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -24,37 +24,43 @@ public class Signupmen extends Activity {
 		setContentView(R.layout.signupmen);
 		
 		etemailsm = (EditText)findViewById(R.id.etmailsm);
-		etpasssm = (EditText)findViewById(R.id.etpasssm);
-		etpassvsm = (EditText)findViewById(R.id.etpassver);
+		etpasyncm = (EditText)findViewById(R.id.etpasssm);
+		etpasyncvm = (EditText)findViewById(R.id.etpassver);
 		
-		SharedPreferences  prefe = getSharedPreferences("datamen", Context.MODE_PRIVATE);
-		etemailsm.setText(prefe.getString("email", ""));
-		etpasssm.setText(prefe.getString("pass", ""));
-		etpassvsm.setText(prefe.getString("passv", ""));
+		
+		SharedPreferences  prefe = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		etemailsm.setText(prefe.getString("emailmen", ""));
+		etpasyncm.setText(prefe.getString("passync", ""));
+		etpasyncm.setText(prefe.getString("pasyncv", ""));
+		//etpassvsm.setText(prefe.getString("passv", ""));
 		
 	}
 	
 	public void ejecutar(View view)
 	{
-		SharedPreferences preferencias = getSharedPreferences("datamen", Context.MODE_PRIVATE);
+		SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
 		Editor editor = preferencias.edit();
 		
 		String mail = etemailsm.getText().toString();
-		String pass = etpasssm.getText().toString();
-		String passv = etpassvsm.getText().toString();
+		String pass = etpasyncm.getText().toString();
+		String passv = etpasyncvm.getText().toString();
+		
 		
 		if(pass.equals(passv)){
-			editor.putString("emailc", mail);
-			editor.putString("pass", pass);
-			editor.putString("passv", passv);
+			editor.putString("emailmen", mail);
+			editor.putString("passync", pass);
+			editor.putString("pasyncv", passv);
+			editor.putString("CoupleMenData", "Yes");
+			//editor.putString("passv", passv);
 			editor.commit();
-			finish();
+			//finish();
 			}else{
 				Context context = getApplicationContext();
 				CharSequence text = "Passwords are different.";
 				int duration = Toast.LENGTH_SHORT;
 				Toast toast = Toast.makeText(context, text, duration);
 				toast.show();
+				editor.putString("CoupleMenData", "No");
 			}
 		
 		AlertDialog.Builder dialogosm = new AlertDialog.Builder(this);
@@ -80,8 +86,16 @@ public class Signupmen extends Activity {
 		dialogosm.show();
 	}
 	
+	
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		
+	}
+
 	private void launchIntent(){
-		Intent it = new Intent(this,Myhomeactivity.class);
+		Intent it = new Intent(this, Myhomeactivity.class);
 	    it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(it);
 	}

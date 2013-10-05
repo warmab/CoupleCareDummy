@@ -7,57 +7,59 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".WelcomeCC" >
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/fondowelcome" />
+    tools:context=".WelcomeCC" 
+    android:background="@drawable/fondoww">
 
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:layout_x="19dp"
-        android:layout_y="219dp" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/btnsendsm"
-                android:layout_width="78dp"
-                android:layout_height="wrap_content"
-                android:onClick="checkdata"
-                android:text="Sign-Up" />
-
-            <Button
-                android:id="@+id/btnconfl"
-                android:layout_width="77dp"
-                android:layout_height="wrap_content"
-                android:onClick="lanzarlogin"
-                android:text="Login" />
-
-            <Button
-                android:id="@+id/btnper"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:onClick="lanzarstart"
-                android:text="Start" />
-
-        </LinearLayout>
+        android:layout_y="464dp" >
 
     </TableRow>
 
-    <TextView
-        android:id="@+id/tv1"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="30dp"
-        android:layout_y="278dp"
-        android:text="&quot; &quot;"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_x="-13dp"
+        android:layout_y="182dp" >
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="174dp"
+        android:layout_y="366dp"
+        android:onClick="lanzarstart"
+        android:src="@drawable/startinicio" />
+
+    <ImageButton
+        android:id="@+id/btnsendsm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="94dp"
+        android:layout_y="113dp"
+        android:onClick="checkdata"
+        android:src="@drawable/singup" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="119dp"
+        android:layout_height="wrap_content"
+        android:layout_x="120dp"
+        android:layout_y="268dp"
+        android:onClick="cleardata"
+        android:text="Reset Shared" />
+
+    <ImageButton
+        android:id="@+id/btnconfl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="24dp"
+        android:layout_y="367dp"
+        android:onClick="lanzarlogin"
+        android:src="@drawable/login" />
 
 </AbsoluteLayout>

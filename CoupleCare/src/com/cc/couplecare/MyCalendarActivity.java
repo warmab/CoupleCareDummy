@@ -1,5 +1,8 @@
 package com.cc.couplecare;
 
+import calculatedays.ColorEnum;
+import calculatedays.Day;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -379,12 +383,28 @@ private static final boolean USER_IS_GOING_TO_EXIT = false;
 
   @Override
   public void onClick(View view) {
+
    String date_month_year = (String) view.getTag();
    selectedDayMonthYearButton.setText("Selected: " + date_month_year);
-   Log.e("Selected date", date_month_year);
+   //selectedDayMonthYearButton.setText("Selected: " + date_month_year);
+   //Log.e("Selected date", date_month_year);
+   
+   Calendar cal = Calendar.getInstance();
+   Day day = null;
+   
    try {
     Date parsedDate = dateFormatter.parse(date_month_year);
-    Log.d(tag, "Parsed Date: " + parsedDate.toString());
+    cal.setTime(parsedDate);
+    
+    day = new Day(cal, true, "", ColorEnum.BLUE);
+    day.calculateFertilesDays();
+    
+    //selectedDayMonthYearButton.setText("Selected: [" + day.getSimpleDatesList() + "]");
+    selectedDayMonthYearButton.setText("[" + calendarView.getSelectedItemPosition() + "], " + view.getId());
+    view.setBackgroundColor(Color.GREEN);
+    
+    
+    //Log.d(tag, "Parsed Date: " + parsedDate.toString());
 
    } catch (ParseException e) {
     e.printStackTrace();
