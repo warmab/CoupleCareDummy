@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/widget32"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/signupmen">
+<RelativeLayout
+	android:id="@+id/widget42"
+	android:layout_width="196dp"
+	android:layout_height="432dp"
+	android:layout_alignParentTop="true"
+	android:layout_centerHorizontal="true">
+<ImageButton
+	android:id="@+id/btnenter"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_alignParentBottom="true"
+	android:layout_centerHorizontal="true" 
+	android:background="@color/Transparent"
+	android:src="@drawable/loginbuttonhombre"/>
+
+<EditText
+    android:id="@+id/etemailw"
+    android:layout_width="182dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/widget43"
+    android:layout_marginTop="32dp"
+    android:text=""
+    android:background="@android:drawable/editbox_background"
+    android:textSize="18sp" >
+
+    <requestFocus />
+</EditText>
+
+<EditText
+    android:id="@+id/etsynpass"
+    android:layout_width="182dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/widget46"
+    android:background="@android:drawable/editbox_background"
+    android:layout_marginTop="34dp"
+    android:text=""
+    android:textSize="18sp" />
+
+<TextView
+    android:id="@+id/widget46"
+    android:layout_width="wrap_content"
+    android:layout_height="18dp"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:text="SyncPass:" />
+
+<TextView
+    android:id="@+id/widget43"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="74dp"
+    android:text="Email or UserName:" />
+
+</RelativeLayout>
+</RelativeLayout>

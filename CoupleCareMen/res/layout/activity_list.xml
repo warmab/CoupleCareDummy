@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/backgrounden">
+
+    <ListView
+        android:id="@+id/ListView_listado"
+        style="@style/AppBaseTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/imageButton2" >
+
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/btnnextcycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ListView_listado"
+        android:layout_toRightOf="@+id/imageButton2"
+        android:background="@color/Transparent"
+        android:onClick="next"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nexctbtnh" />
+
+    <ImageButton
+        android:id="@+id/btnfirstcycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ListView_listado"
+        android:background="@color/Transparent"
+        android:onClick="backlist"
+        android:scaleType="fitCenter"
+        android:src="@drawable/backbtnh" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/Transparent"
+        android:scaleType="fitCenter"
+        android:onClick="home"
+        android:src="@drawable/homeh" />
+
+</RelativeLayout>

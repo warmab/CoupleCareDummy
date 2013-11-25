@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget32"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/backgrounden">
+
+    <RelativeLayout
+        android:id="@+id/widget53"
+        android:layout_width="273dp"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/widget57"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" >
+
+        <ImageButton
+            android:id="@+id/btnfertil"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@color/Transparent"
+            android:onClick="calllistcalendar"
+            android:scaleType="fitXY"
+            android:src="@drawable/imgfertil" />
+
+        <TextView
+            android:id="@+id/tvdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="17dp"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/widget57"
+        android:layout_width="181dp"
+        android:layout_height="83dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" >
+
+        <ImageButton
+            android:id="@+id/btnupdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/Transparent"
+            android:onClick="callclienthtt"
+            android:src="@drawable/btnupdate" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/widget53"
+        android:layout_alignTop="@+id/widget57"
+        android:background="@color/Transparent"
+        android:onClick="logout"
+        android:src="@drawable/logoutbuttonhombre" />
+
+</RelativeLayout>
